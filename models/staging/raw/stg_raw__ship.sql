@@ -11,7 +11,7 @@ renamed as (
     select
         orders_id,
         cast(shipping_fee as FLOAT64) as shipping_fee,
-        logcost,
+        logcost as log_cost,
         cast(ship_cost as FLOAT64) as ship_cost
 
     from source
