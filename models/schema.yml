@@ -4,6 +4,86 @@ sources:
   - name: raw
     schema: gz_raw_data
     tables:
+      - name: adwords
+        identifier: raw_gz_adwords
+        description: adwords advertising campaign
+        columns:
+          - name: date_date
+            description: date of campaign
+          - name: paid_source
+            description: the marketing platform where paid campaign traffic originated 
+          - name: campaign_key
+            description: primary key
+            tests:
+              - not_null
+          - name: campaign_name
+            description: name of the campaign
+          - name: ads_cost
+            description: cost of the campaign
+          - name: impression
+            description: the number of times ad was displayed to a user
+          - name: click
+            description: the number of times users clicked on an ad 
+      - name: bing
+        identifier: raw_gz_bing
+        description: bing advertising campaign
+        columns:
+          - name: date_date
+            description: date of campaign
+          - name: paid_source
+            description: the marketing platform where paid campaign traffic originated 
+          - name: campaign_key
+            description: primary key
+            tests:
+              - not_null
+          - name: campaign_name
+            description: name of the campaign
+          - name: ads_cost
+            description: cost of the campaign
+          - name: impression
+            description: the number of times ad was displayed to a user
+          - name: click
+            description: the number of times users clicked on an ad
+      - name: criteo
+        identifier: raw_gz_criteo
+        description: criteo advertising campaign
+        columns:
+          - name: date_date
+            description: date of campaign
+          - name: paid_source
+            description: the marketing platform where paid campaign traffic originated 
+          - name: campaign_key
+            description: primary key
+            tests:
+              - not_null
+          - name: campaign_name
+            description: name of the campaign
+          - name: ads_cost
+            description: cost of the campaign
+          - name: impression
+            description: the number of times ad was displayed to a user
+          - name: click
+            description: the number of times users clicked on an ad
+      - name: facebook
+        identifier: raw_gz_facebook
+        description: facebook advertising campaign
+        columns:
+          - name: date_date
+            description: date of campaign
+          - name: paid_source
+            description: the marketing platform where paid campaign traffic originated 
+          - name: campaign_key
+            description: primary key
+            tests:
+              - not_null
+          - name: campaign_name
+            description: name of the campaign
+          - name: ads_cost
+            description: cost of the campaign
+          - name: impression
+            description: the number of times ad was displayed to a user
+          - name: click
+            description: the number of times users clicked on an ad
       - name: sales
         identifier: raw_gz_sales
         description: sales of products
@@ -156,4 +236,13 @@ models:
               - not_null             
         tests:
           - unique:
-              column_name: "(orders_id)"        
+              column_name: "(orders_id)"
+      
+      # mart #
+      - name: finance_campaigns_day
+        description: all KPIs
+        columns:
+          - name: ads_margin
+            description: operational_margin - ads_cost
+            
+          
